@@ -1,0 +1,132 @@
+### VARIÁVEL (coloque o código do Faker aqui depois de criar)
+@codigoFaker = CODIGO_AQUI_DEPOIS
+@codigoUzi = CODIGO_AQUI_DEPOIS
+@codigoTheShy = CODIGO_AQUI_DEPOIS
+
+### ========================================
+### 1. CRIAR JOGADOR - FAKER
+### ========================================
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "nome_jogador": "Faker",
+  "habilidade_principal": "Mid Lane"
+}
+
+### ========================================
+### 2. CRIAR JOGADOR - UZI
+### ========================================
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "nome_jogador": "Uzi",
+  "habilidade_principal": "ADC"
+}
+
+### ========================================
+### 3. CRIAR JOGADOR - THESHY
+### ========================================
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "nome_jogador": "TheShy",
+  "habilidade_principal": "Top Lane"
+}
+
+### ========================================
+### 4. CRIAR JOGADOR - ROOKIE
+### ========================================
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "nome_jogador": "Rookie",
+  "habilidade_principal": "Mid Lane"
+}
+
+### ========================================
+### 5. LISTAR TODOS OS JOGADORES
+### ========================================
+GET http://localhost:3000/api/jogadores
+
+### ========================================
+### 6. BUSCAR POR CÓDIGO (FAKER)
+### ========================================
+GET http://localhost:3000/api/jogadores/{{codigoFaker}}
+
+### ========================================
+### 7. BUSCAR POR NOME - EXATO
+### ========================================
+GET http://localhost:3000/api/jogadores/buscar?nome=Faker
+
+### ========================================
+### 8. BUSCAR POR NOME - PARCIAL
+### ========================================
+GET http://localhost:3000/api/jogadores/buscar?nome=Mid
+
+### ========================================
+### 9. BUSCAR CASE-INSENSITIVE
+### ========================================
+GET http://localhost:3000/api/jogadores/buscar?nome=uzi
+
+### ========================================
+### 10. ATUALIZAR JOGADOR (FAKER)
+### ========================================
+PUT http://localhost:3000/api/jogadores/{{codigoFaker}}
+Content-Type: application/json
+
+{
+  "nome_jogador": "Faker - The Unkillable Demon King",
+  "habilidade_principal": "Mid Lane Expert"
+}
+
+### ========================================
+### 11. DELETAR JOGADOR (THESHY)
+### ========================================
+DELETE http://localhost:3000/api/jogadores/{{codigoTheShy}}
+
+### ========================================
+### 12. TENTAR DELETAR NOVAMENTE (ERRO 404)
+### ========================================
+DELETE http://localhost:3000/api/jogadores/{{codigoTheShy}}
+
+### ========================================
+### VALIDAÇÕES - ERROS
+### ========================================
+
+### 13. ERRO - CRIAR SEM NOME
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "habilidade_principal": "Support"
+}
+
+### 14. ERRO - NOME MUITO CURTO
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "nome_jogador": "AB",
+  "habilidade_principal": "Jungle"
+}
+
+### 15. ERRO - SEM HABILIDADE
+POST http://localhost:3000/api/jogadores
+Content-Type: application/json
+
+{
+  "nome_jogador": "Caps"
+}
+
+### 16. ERRO - BUSCAR SEM PARÂMETRO
+GET http://localhost:3000/api/jogadores/buscar
+
+### 17. ERRO - CÓDIGO INEXISTENTE
+GET http://localhost:3000/api/jogadores/codigo-invalido-123
+
+### 18. ERRO - ROTA INEXISTENTE
+GET http://localhost:3000/api/jogador

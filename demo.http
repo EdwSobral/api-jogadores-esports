@@ -1,0 +1,49 @@
+### BASE URL
+@baseUrl = http://localhost:3000/api/jogadores
+
+### ========================================
+### CRIAR JOGADOR
+### ========================================
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome_jogador": "Faker",
+  "habilidade_principal": "Mid Lane"
+}
+
+### ========================================
+### LISTAR TODOS
+### ========================================
+GET {{baseUrl}}
+
+### ========================================
+### BUSCAR POR NOME
+### ========================================
+GET {{baseUrl}}/buscar?nome=Faker
+
+### ========================================
+### ATUALIZAR JOGADOR
+### ========================================
+PUT {{baseUrl}}/CODIGO_AQUI
+Content-Type: application/json
+
+{
+  "nome_jogador": "Faker Pro",
+  "habilidade_principal": "Mid Expert"
+}
+
+### ========================================
+### DELETAR JOGADOR
+### ========================================
+DELETE {{baseUrl}}/CODIGO_AQUI
+
+### ========================================
+### ERRO - VALIDAÇÃO
+### ========================================
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nome_jogador": "AB"
+}

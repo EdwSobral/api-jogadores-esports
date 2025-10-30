@@ -1,31 +1,31 @@
 # API de Jogadores de eSportes
 
-Sistema desenvolvido em Node.js para gerenciar informações de jogadores profissionais de eSportes. Implementa operações CRUD completas (Create, Read, Update, Delete) e funcionalidade de busca por nome com filtros avançados.
+Sistema desenvolvido em Node.js para gerenciamento de informacoes de jogadores profissionais de eSportes. Implementa operacoes CRUD completas (Create, Read, Update, Delete) e funcionalidade de busca por nome com filtros avancados.
 
 ## Tecnologias Utilizadas
 
-- Node.js (ambiente de execução JavaScript)
+- Node.js (ambiente de execucao JavaScript)
 - Express (framework web)
-- UUID (geração de identificadores únicos)
-- Dotenv (gerenciamento de variáveis de ambiente)
+- UUID (geracao de identificadores unicos)
+- Dotenv (gerenciamento de variaveis de ambiente)
 
 ## Funcionalidades Principais
 
 O sistema oferece as seguintes funcionalidades:
 
-- Cadastro de novos jogadores com validação de dados
+- Cadastro de novos jogadores com validacao de dados
 - Listagem completa de jogadores cadastrados
-- Busca de jogador específico por código único
-- Busca de jogadores por nome (aceita termos parciais e é case-insensitive)
-- Atualização de informações dos jogadores
-- Remoção de jogadores do sistema
-- Tratamento de erros em três níveis diferentes
-- Validação rigorosa de todos os dados recebidos
+- Busca de jogador especifico por codigo unico
+- Busca de jogadores por nome (aceita termos parciais e e case-insensitive)
+- Atualizacao de informacoes dos jogadores
+- Remocao de jogadores do sistema
+- Tratamento de erros em tres niveis diferentes
+- Validacao rigorosa de todos os dados recebidos
 - Mensagens de erro claras e descritivas
 
 ## Estrutura do Projeto
 
-O projeto está organizado em camadas seguindo o padrão MVC adaptado:
+O projeto esta organizado em camadas seguindo o padrao MVC adaptado:
 
 ```
 api-jogadores-esports/
@@ -50,36 +50,36 @@ api-jogadores-esports/
 └── README.md
 ```
 
-### Descrição das Camadas
+### Descricao das Camadas
 
-**config/database.js** - Simula um banco de dados em memória usando a estrutura Map do JavaScript. Escolhi Map ao invés de Array porque oferece tempo de busca constante O(1) ao invés de linear O(n).
+**config/database.js** - Simula um banco de dados em memoria usando a estrutura Map do JavaScript. Escolhi Map ao inves de Array porque oferece tempo de busca constante O(1) ao inves de linear O(n).
 
-**models/jogadorModel.js** - Contém toda a lógica de negócio da aplicação. Aqui estão implementadas as validações de dados e as regras de como os jogadores devem ser criados, atualizados ou removidos.
+**models/jogadorModel.js** - Contem toda a logica de negocio da aplicacao. Aqui estao implementadas as validacoes de dados e as regras de como os jogadores devem ser criados, atualizados ou removidos.
 
-**controllers/jogadorController.js** - Responsável por receber as requisições HTTP, extrair os dados necessários, chamar o model apropriado e formatar a resposta que será enviada ao cliente.
+**controllers/jogadorController.js** - Responsavel por receber as requisicoes HTTP, extrair os dados necessarios, chamar o model apropriado e formatar a resposta que sera enviada ao cliente.
 
-**routes/jogadorRoutes.js** - Define todas as rotas (endpoints) disponíveis na API e associa cada uma ao seu respectivo controller.
+**routes/jogadorRoutes.js** - Define todas as rotas (endpoints) disponiveis na API e associa cada uma ao seu respectivo controller.
 
-**middlewares/errorHandler.js** - Centraliza o tratamento de erros da aplicação. Analisa cada erro que ocorre e retorna o status HTTP adequado com mensagens claras.
+**middlewares/errorHandler.js** - Centraliza o tratamento de erros da aplicacao. Analisa cada erro que ocorre e retorna o status HTTP adequado com mensagens claras.
 
 **app.js** - Configura o Express, registra os middlewares globais e conecta todas as rotas.
 
-**server.js** - Inicializa o servidor HTTP na porta especificada e implementa tratamento de erros não capturados.
+**server.js** - Inicializa o servidor HTTP na porta especificada e implementa tratamento de erros nao capturados.
 
 ## Como Instalar e Executar
 
-Antes de começar, você precisa ter o Node.js instalado (versão 16 ou superior recomendada).
+Antes de comecar, voce precisa ter o Node.js instalado (versao 16 ou superior recomendada).
 
-### Passos para instalação:
+### Passos para instalacao:
 
-1. Clone este repositório ou baixe os arquivos
+1. Clone este repositorio ou baixe os arquivos
 2. Abra o terminal na pasta do projeto
-3. Instale as dependências com o comando:
+3. Instale as dependencias com o comando:
 ```bash
 npm install
 ```
 
-4. O arquivo .env já está configurado com as variáveis necessárias
+4. O arquivo .env ja esta configurado com as variaveis necessarias
 
 5. Inicie o servidor com um dos comandos abaixo:
 ```bash
@@ -90,9 +90,9 @@ ou, se quiser usar o nodemon (reinicia automaticamente ao salvar arquivos):
 npm run dev
 ```
 
-6. O servidor estará disponível em http://localhost:3000
+6. O servidor estara disponivel em http://localhost:3000
 
-## Documentação dos Endpoints
+## Documentacao dos Endpoints
 
 Todos os endpoints retornam dados em formato JSON.
 
@@ -102,7 +102,7 @@ Todos os endpoints retornam dados em formato JSON.
 {
   "codigo_jogador": "uuid-unico-gerado-automaticamente",
   "nome_jogador": "Nome Completo do Jogador",
-  "habilidade_principal": "Posição ou Habilidade",
+  "habilidade_principal": "Posicao ou Habilidade",
   "criado_em": "2025-10-30T15:30:00.000Z",
   "atualizado_em": "2025-10-30T16:00:00.000Z"
 }
@@ -112,7 +112,7 @@ Todos os endpoints retornam dados em formato JSON.
 
 **Endpoint:** POST /api/jogadores
 
-**Corpo da Requisição:**
+**Corpo da Requisicao:**
 ```json
 {
   "nome_jogador": "Faker",
@@ -120,9 +120,9 @@ Todos os endpoints retornam dados em formato JSON.
 }
 ```
 
-**Regras de Validação:**
-- nome_jogador: campo obrigatório, mínimo 3 caracteres, máximo 100 caracteres
-- habilidade_principal: campo obrigatório, não pode ser vazio
+**Regras de Validacao:**
+- nome_jogador: campo obrigatorio, minimo 3 caracteres, maximo 100 caracteres
+- habilidade_principal: campo obrigatorio, nao pode ser vazio
 
 **Resposta de Sucesso (Status 201):**
 ```json
@@ -148,15 +148,15 @@ Todos os endpoints retornam dados em formato JSON.
   "sucesso": true,
   "quantidade": 4,
   "dados": [
-    { jogador 1 },
-    { jogador 2 },
-    { jogador 3 },
-    { jogador 4 }
+    { "jogador": 1 },
+    { "jogador": 2 },
+    { "jogador": 3 },
+    { "jogador": 4 }
   ]
 }
 ```
 
-### Buscar Jogador por Código
+### Buscar Jogador por Codigo
 
 **Endpoint:** GET /api/jogadores/:codigo
 
@@ -179,15 +179,15 @@ Todos os endpoints retornam dados em formato JSON.
 
 **Endpoint:** GET /api/jogadores/buscar?nome={termo}
 
-Esta é uma funcionalidade especial que implementei. A busca funciona de forma inteligente:
+Esta e uma funcionalidade especial que implementei. A busca funciona de forma inteligente:
 - Aceita termos parciais (buscar "Fak" encontra "Faker")
-- Não diferencia maiúsculas de minúsculas (buscar "uzi" encontra "Uzi")
+- Nao diferencia maiusculas de minusculas (buscar "uzi" encontra "Uzi")
 - Busca tanto no nome quanto na habilidade do jogador
 
 **Exemplos:**
 - GET /api/jogadores/buscar?nome=Faker (busca exata)
 - GET /api/jogadores/buscar?nome=Mid (encontra todos com "Mid Lane")
-- GET /api/jogadores/buscar?nome=uzi (encontra "Uzi" mesmo em minúsculo)
+- GET /api/jogadores/buscar?nome=uzi (encontra "Uzi" mesmo em minusculo)
 
 **Resposta (Status 200):**
 ```json
@@ -195,8 +195,8 @@ Esta é uma funcionalidade especial que implementei. A busca funciona de forma i
   "sucesso": true,
   "quantidade": 2,
   "dados": [
-    { jogador que corresponde à busca },
-    { outro jogador que corresponde }
+    { "jogador": "correspondente" },
+    { "outro": "jogador" }
   ]
 }
 ```
@@ -205,7 +205,7 @@ Esta é uma funcionalidade especial que implementei. A busca funciona de forma i
 
 **Endpoint:** PUT /api/jogadores/:codigo
 
-**Corpo da Requisição:**
+**Corpo da Requisicao:**
 ```json
 {
   "nome_jogador": "Faker Pro",
@@ -213,7 +213,7 @@ Esta é uma funcionalidade especial que implementei. A busca funciona de forma i
 }
 ```
 
-As mesmas validações do cadastro são aplicadas na atualização.
+As mesmas validacoes do cadastro sao aplicadas na atualizacao.
 
 **Resposta (Status 200):**
 ```json
@@ -243,36 +243,36 @@ As mesmas validações do cadastro são aplicadas na atualização.
 
 ## Como Testar a API
 
-Implementei duas formas principais de testar: usando a extensão REST Client do VS Code ou usando ferramentas como cURL, Postman ou Insomnia.
+Implementei duas formas principais de testar: usando a extensao REST Client do VS Code ou usando ferramentas como cURL, Postman ou Insomnia.
 
-### Opção 1: REST Client (Recomendado)
+### Opcao 1: REST Client (Recomendado)
 
-Esta é a forma mais prática que encontrei para testar APIs durante o desenvolvimento.
+Esta e a forma mais pratica que encontrei para testar APIs durante o desenvolvimento.
 
-**Instalação:**
+**Instalacao:**
 1. Abra o VS Code
-2. Vá em Extensions (Ctrl + Shift + X)
+2. Va em Extensions (Ctrl + Shift + X)
 3. Procure por "REST Client"
-4. Instale a extensão do Huachao Mao
+4. Instale a extensao do Huachao Mao
 
-**Arquivos de Teste Incluídos:**
+**Arquivos de Teste Incluidos:**
 
-O projeto já vem com dois arquivos prontos para teste:
+O projeto ja vem com dois arquivos prontos para teste:
 
-**testes.http** - Contém 17 requisições cobrindo todos os cenários possíveis. Use este arquivo para testar tudo antes de apresentar o projeto. Ele inclui testes de CRUD completo, validações e casos de erro.
+**testes.http** - Contem 17 requisicoes cobrindo todos os cenarios possiveis. Use este arquivo para testar tudo antes de apresentar o projeto. Ele inclui testes de CRUD completo, validacoes e casos de erro.
 
-**demo.http** - Versão simplificada com 9 requisições essenciais. Este arquivo foi pensado para demonstrações e apresentações, pois tem um fluxo mais limpo e direto.
+**demo.http** - Versao simplificada com 9 requisicoes essenciais. Este arquivo foi pensado para demonstracoes e apresentacoes, pois tem um fluxo mais limpo e direto.
 
 **Como usar:**
-1. Certifique-se que o servidor está rodando (npm start)
+1. Certifique-se que o servidor esta rodando (npm start)
 2. Abra qualquer um dos arquivos .http no VS Code
-3. Você verá "Send Request" aparecer acima de cada requisição
+3. Voce vera "Send Request" aparecer acima de cada requisicao
 4. Clique em "Send Request" para executar
 5. A resposta aparece automaticamente em uma nova aba
 
-### Opção 2: cURL (Linha de Comando)
+### Opcao 2: cURL (Linha de Comando)
 
-Se preferir usar o terminal, aqui estão exemplos de comandos:
+Se preferir usar o terminal, aqui estao exemplos de comandos:
 
 **Criar jogador:**
 ```bash
@@ -303,50 +303,50 @@ curl -X PUT http://localhost:3000/api/jogadores/codigo-do-jogador \
 curl -X DELETE http://localhost:3000/api/jogadores/codigo-do-jogador
 ```
 
-### Opção 3: Postman ou Insomnia
+### Opcao 3: Postman ou Insomnia
 
-Você pode importar as requisições ou criar manualmente. A base URL é http://localhost:3000
+Voce pode importar as requisicoes ou criar manualmente. A base URL e http://localhost:3000
 
-### Opção 4: Navegador
+### Opcao 4: Navegador
 
-Para requisições GET, você pode simplesmente abrir o navegador:
-- http://localhost:3000 (documentação da API)
+Para requisicoes GET, voce pode simplesmente abrir o navegador:
+- http://localhost:3000 (documentacao da API)
 - http://localhost:3000/api/jogadores (lista todos)
 - http://localhost:3000/api/jogadores/buscar?nome=Faker (busca)
 
 ## Tratamento de Erros
 
-Implementei um sistema de tratamento de erros em três níveis, cada um com sua responsabilidade específica.
+Implementei um sistema de tratamento de erros em tres niveis, cada um com sua responsabilidade especifica.
 
 ### Status HTTP Utilizados:
 
-**200 OK** - Requisição processada com sucesso (GET, PUT, DELETE bem-sucedidos)
+**200 OK** - Requisicao processada com sucesso (GET, PUT, DELETE bem-sucedidos)
 
 **201 Created** - Novo recurso criado com sucesso (POST)
 
-**400 Bad Request** - Dados enviados são inválidos ou está faltando alguma informação obrigatória
+**400 Bad Request** - Dados enviados sao invalidos ou esta faltando alguma informacao obrigatoria
 
-**404 Not Found** - O recurso solicitado não existe no sistema
+**404 Not Found** - O recurso solicitado nao existe no sistema
 
 **500 Internal Server Error** - Erro inesperado no servidor
 
 ### Exemplos de Respostas de Erro:
 
-**Erro de Validação (400):**
+**Erro de Validacao (400):**
 ```json
 {
   "sucesso": false,
-  "tipo": "Erro de Validação",
-  "mensagem": "Dados inválidos: O nome deve ter pelo menos 3 caracteres"
+  "tipo": "Erro de Validacao",
+  "mensagem": "Dados invalidos: O nome deve ter pelo menos 3 caracteres"
 }
 ```
 
-**Recurso Não Encontrado (404):**
+**Recurso Nao Encontrado (404):**
 ```json
 {
   "sucesso": false,
-  "tipo": "Não Encontrado",
-  "mensagem": "Nenhum jogador encontrado com esse código"
+  "tipo": "Nao Encontrado",
+  "mensagem": "Nenhum jogador encontrado com esse codigo"
 }
 ```
 
@@ -354,89 +354,88 @@ Implementei um sistema de tratamento de erros em três níveis, cada um com sua 
 ```json
 {
   "sucesso": false,
-  "tipo": "Rota Não Encontrada",
-  "mensagem": "A rota GET /api/jogador não existe nesta API",
-  "dica": "Verifique a documentação para ver as rotas disponíveis"
+  "tipo": "Rota Nao Encontrada",
+  "mensagem": "A rota GET /api/jogador nao existe nesta API",
+  "dica": "Verifique a documentacao para ver as rotas disponiveis"
 }
 ```
 
-## Decisões Técnicas e Arquitetura
+## Decisoes Tecnicas e Arquitetura
 
-### Por que separei o código em camadas?
+### Por que separei o codigo em camadas?
 
-Optei por separar a aplicação em camadas (Model, Controller, Routes, Middleware) seguindo o princípio de Separação de Responsabilidades. Cada camada tem uma função específica:
+Optei por separar a aplicacao em camadas (Model, Controller, Routes, Middleware) seguindo o principio de Separacao de Responsabilidades. Cada camada tem uma funcao especifica:
 
-A camada de **Model** cuida exclusivamente da lógica de negócio. Aqui estão as validações, regras e a comunicação com o banco de dados. Se eu precisar mudar uma regra de validação, sei exatamente onde está.
+A camada de **Model** cuida exclusivamente da logica de negocio. Aqui estao as validacoes, regras e a comunicacao com o banco de dados. Se eu precisar mudar uma regra de validacao, sei exatamente onde esta.
 
-A camada de **Controller** lida apenas com a parte HTTP da aplicação. Ela recebe requisições, extrai os dados necessários, chama o model apropriado e formata as respostas. Não tem lógica de negócio aqui.
+A camada de **Controller** lida apenas com a parte HTTP da aplicacao. Ela recebe requisicoes, extrai os dados necessarios, chama o model apropriado e formata as respostas. Nao tem logica de negocio aqui.
 
-A camada de **Routes** apenas mapeia URLs para controllers. É fácil ver todas as rotas disponíveis olhando este arquivo.
+A camada de **Routes** apenas mapeia URLs para controllers. E facil ver todas as rotas disponiveis olhando este arquivo.
 
-O **Middleware** centraliza o tratamento de erros. Ao invés de repetir código de tratamento de erro em cada controller, trato tudo em um único lugar.
+O **Middleware** centraliza o tratamento de erros. Ao inves de repetir codigo de tratamento de erro em cada controller, trato tudo em um unico lugar.
 
-Essa separação facilita manutenção, testes e permite escalar o projeto facilmente. Se amanhã eu quiser adicionar GraphQL, posso reutilizar todo o Model sem modificações.
+Essa separacao facilita manutencao, testes e permite escalar o projeto facilmente. Se amanha eu quiser adicionar GraphQL, posso reutilizar todo o Model sem modificacoes.
 
-### Por que escolhi Map ao invés de Array?
+### Por que escolhi Map ao inves de Array?
 
-Para o banco de dados em memória, escolhi usar a estrutura Map do JavaScript ao invés de um Array simples por questões de performance.
+Para o banco de dados em memoria, escolhi usar a estrutura Map do JavaScript ao inves de um Array simples por questoes de performance.
 
-Com Array, para buscar um jogador por código eu precisaria percorrer todo o array até encontrar (complexidade O(n)). Com 1000 jogadores, poderia ter que verificar os 1000.
+Com Array, para buscar um jogador por codigo eu precisaria percorrer todo o array ate encontrar (complexidade O(n)). Com 1000 jogadores, poderia ter que verificar os 1000.
 
-Com Map, o acesso é direto por chave com complexidade O(1). Não importa se tenho 10 ou 10.000 jogadores, a busca é instantânea.
+Com Map, o acesso e direto por chave com complexidade O(1). Nao importa se tenho 10 ou 10.000 jogadores, a busca e instantanea.
 
-Além disso, Map oferece métodos nativos como has(), delete() e get() que facilitam muito as operações CRUD.
+Alem disso, Map oferece metodos nativos como has(), delete() e get() que facilitam muito as operacoes CRUD.
 
 ### Como implementei o assincronismo?
 
-Usei async/await em todas as operações porque Node.js é single-threaded. Se eu fizesse operações síncronas, cada requisição bloquearia o servidor inteiro até terminar.
+Usei async/await em todas as operacoes porque Node.js e single-threaded. Se eu fizesse operacoes sincronas, cada requisicao bloquearia o servidor inteiro ate terminar.
 
-Com async/await, quando uma operação está aguardando (por exemplo, buscando no banco de dados), o Event Loop do Node libera a thread para processar outras requisições. Isso permite que o servidor atenda centenas de requisições simultaneamente mesmo sendo single-threaded.
+Com async/await, quando uma operacao esta aguardando (por exemplo, buscando no banco de dados), o Event Loop do Node libera a thread para processar outras requisicoes. Isso permite que o servidor atenda centenas de requisicoes simultaneamente mesmo sendo single-threaded.
 
-Usei Promises com setTimeout para simular a latência que existiria em um banco de dados real. Em produção, essas Promises seriam as chamadas reais ao PostgreSQL, MongoDB ou outro banco.
+Usei Promises com setTimeout para simular a latencia que existiria em um banco de dados real. Em producao, essas Promises seriam as chamadas reais ao PostgreSQL, MongoDB ou outro banco.
 
-### Sistema de tratamento de erros em três níveis
+### Sistema de tratamento de erros em tres niveis
 
-Implementei o tratamento de erros pensando em três momentos diferentes:
+Implementei o tratamento de erros pensando em tres momentos diferentes:
 
-**Nível 1 - Model:** Aqui acontecem as validações de negócio. Se o nome é muito curto, se falta algum campo obrigatório, etc. O Model lança erros específicos com mensagens claras.
+**Nivel 1 - Model:** Aqui acontecem as validacoes de negocio. Se o nome e muito curto, se falta algum campo obrigatorio, etc. O Model lanca erros especificos com mensagens claras.
 
-**Nível 2 - Controller:** Todo controller envolve suas operações em try-catch. Se qualquer erro acontecer (do Model, do banco, ou inesperado), o catch captura e passa para o próximo nível usando next(erro).
+**Nivel 2 - Controller:** Todo controller envolve suas operacoes em try-catch. Se qualquer erro acontecer (do Model, do banco, ou inesperado), o catch captura e passa para o proximo nivel usando next(erro).
 
-**Nível 3 - Middleware:** O middleware errorHandler analisa o erro recebido e decide qual status HTTP retornar. Erros de validação viram 400, recursos não encontrados viram 404, erros inesperados viram 500. As mensagens são formatadas de forma consistente.
+**Nivel 3 - Middleware:** O middleware errorHandler analisa o erro recebido e decide qual status HTTP retornar. Erros de validacao viram 400, recursos nao encontrados viram 404, erros inesperados viram 500. As mensagens sao formatadas de forma consistente.
 
 Essa arquitetura garante que nenhum erro quebre o servidor e que o cliente sempre receba uma resposta adequada.
 
-## Limitações e Considerações
+## Limitacoes e Consideracoes
 
-### Sobre o Banco de Dados em Memória
+### Sobre o Banco de Dados em Memoria
 
-Escolhi implementar um banco de dados em memória para este projeto acadêmico. Isso significa que:
+Escolhi implementar um banco de dados em memoria para este projeto academico. Isso significa que:
 
-- Os dados são perdidos quando o servidor é reiniciado
-- Não há persistência entre sessões
-- A capacidade é limitada pela memória RAM disponível
-- Não há suporte a transações ou relacionamentos complexos
+- Os dados sao perdidos quando o servidor e reiniciado
+- Nao ha persistencia entre sessoes
+- A capacidade e limitada pela memoria RAM disponivel
+- Nao ha suporte a transacoes ou relacionamentos complexos
 
-Para um ambiente de produção, este banco seria substituído por PostgreSQL, MySQL ou MongoDB. A vantagem da arquitetura em camadas é que apenas o arquivo database.js precisaria ser modificado, mantendo todo o resto do código intacto.
+Para um ambiente de producao, este banco seria substituido por PostgreSQL, MySQL ou MongoDB. A vantagem da arquitetura em camadas e que apenas o arquivo database.js precisaria ser modificado, mantendo todo o resto do codigo intacto.
 
-### Segurança
+### Seguranca
 
-Este é um projeto educacional e não implementa camadas de segurança necessárias para produção, como:
-- Autenticação de usuários
-- Autorização baseada em papéis
+Este e um projeto educacional e nao implementa camadas de seguranca necessarias para producao, como:
+- Autenticacao de usuarios
+- Autorizacao baseada em papeis
 - Rate limiting para prevenir abuso
-- Sanitização avançada de inputs
+- Sanitizacao avancada de inputs
 - HTTPS
 
+## Autor: Eduardo Sobral
 
-## Autor: Eduardo SObral
-
-Projeto desenvolvido como trabalho avaliativo N2 da disciplina de Programação Server-Side.
-Curso de Engenharia de Software - 3º Semestre
-Católica de Santa Catarina
+Projeto desenvolvido como trabalho avaliativo N2 da disciplina de Programacao Server-Side.
+Curso de Engenharia de Software - 3 Semestre
+Catolica de Santa Catarina
 
 Desenvolvido por Eduardo F. Silva em outubro de 2025.
 
-## Licença
+## Licenca
 
-Este projeto foi desenvolvido para fins educacionais e está disponível para uso acadêmico.
+Este projeto foi desenvolvido para fins educacionais e esta disponivel para uso academico.
